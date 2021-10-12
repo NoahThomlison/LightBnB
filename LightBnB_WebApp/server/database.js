@@ -15,17 +15,28 @@ const pool = new Pool({
  * @param {String} email The email of the user.
  * @return {Promise<{}>} A promise to the user.
  */
+
+//  $2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.
+//  Accepts an email address and will return a promise.
+//  The promise should resolve with the user that has that email address, or null if that user does not exist.
+
 const getUserWithEmail = function(email) {
-  let user;
-  for (const userId in users) {
-    user = users[userId];
-    if (user.email.toLowerCase() === email.toLowerCase()) {
-      break;
-    } else {
-      user = null;
+  const promise = pool
+  .query(
+    `SELECT * FROM users
+    WHERE email = $1`,
+    [ email ])
+  .then((res) => {
+    if(!res.rows.length){
+      return(null)
     }
-  }
-  return Promise.resolve(user);
+    return res.rows;
+    })
+  .catch((err) => {
+    console.log(err.message);
+    });
+
+  return promise;
 }
 exports.getUserWithEmail = getUserWithEmail;
 
@@ -35,7 +46,24 @@ exports.getUserWithEmail = getUserWithEmail;
  * @return {Promise<{}>} A promise to the user.
  */
 const getUserWithId = function(id) {
-  return Promise.resolve(users[id]);
+  const promise = pool
+  .query(
+    `SELECT * FROM users
+    WHERE email = $1`,
+    [ email ])
+  .then((res) => {
+    if(!res.rows.length){
+      return(null)
+    }
+    return res.rows;
+    })
+  .catch((err) => {
+    console.log(err.message);
+    });
+
+  return promise;
+  
+  // return Promise.resolve(users[id]);
 }
 exports.getUserWithId = getUserWithId;
 
@@ -82,7 +110,7 @@ const getAllProperties = function(options, limit = 10) {
       LIMIT $1`,
       [ limit ])
     .then((result) => {
-      console.log(result.rows);
+      // console.log(result.rows);
       return result.rows;
       })
     .catch((err) => {

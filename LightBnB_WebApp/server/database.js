@@ -49,8 +49,8 @@ const getUserWithId = function(id) {
   const promise = pool
   .query(
     `SELECT * FROM users
-    WHERE email = $1`,
-    [ email ])
+    WHERE id = $1`,
+    [ id ])
   .then((res) => {
     if(!res.rows.length){
       return(null)
@@ -62,7 +62,7 @@ const getUserWithId = function(id) {
     });
 
   return promise;
-  
+
   // return Promise.resolve(users[id]);
 }
 exports.getUserWithId = getUserWithId;

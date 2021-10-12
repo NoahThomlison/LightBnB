@@ -30,7 +30,7 @@ const getUserWithEmail = function(email) {
     if(!res.rows.length){
       return(null)
     }
-    return res.rows;
+    return res.rows[0];
     })
   .catch((err) => {
     console.log(err.message);
@@ -55,15 +55,13 @@ const getUserWithId = function(id) {
     if(!res.rows.length){
       return(null)
     }
-    return res.rows;
+    return res.rows[0];
     })
   .catch((err) => {
     console.log(err.message);
     });
 
   return promise;
-
-  // return Promise.resolve(users[id]);
 }
 exports.getUserWithId = getUserWithId;
 
@@ -74,10 +72,21 @@ exports.getUserWithId = getUserWithId;
  * @return {Promise<{}>} A promise to the user.
  */
 const addUser =  function(user) {
-  const userId = Object.keys(users).length + 1;
-  user.id = userId;
-  users[userId] = user;
-  return Promise.resolve(user);
+  const promise = pool
+  .query("INSERT INTO users (name, email, password) \
+  VALUES ($1, $2, $3)",
+    [ user.name, user.email, user.password ])
+  .then((res) => {
+    if(!res.rows.length){
+      return(null)
+    }
+    return res.rows[0];
+    })
+  .catch((err) => {
+    console.log(err.message);
+    });
+
+  return promise;
 }
 exports.addUser = addUser;
 

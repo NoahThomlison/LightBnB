@@ -13,10 +13,7 @@ $(() => {
     $signUpForm.detach();
     $newReservationForm.detach();
     $updateReservationForm.detach();
-
-    $("#reservation-details").remove()
-    console.log(`item: ${item}`)
-    console.log(`data: ${data}`)
+    $('#reservation-details').detach();
 
     let datatag = "";
     console.log(`switch case: ${item}`)
@@ -64,8 +61,6 @@ $(() => {
         $("#datatag").empty();
         $(dataTag).appendTo("#datatag");
         $(errorMessage).appendTo('#error-message');
-        // $updateReservationForm.detach();
-
         break;
       case 'error': {
         const $error = $(`<p>${arguments[1]}</p>`);

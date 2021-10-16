@@ -83,7 +83,7 @@ const updateReservation = function(data) {
 }
 
 const deleteReservation = function(data) {
-  console.log('network')
+  console.log(`network: ${data}`)
   return $.ajax({
     method: "DELETE",
     url: `/api/reservations/${data.reservation_id}`

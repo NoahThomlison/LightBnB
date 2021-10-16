@@ -41,14 +41,9 @@ $(() => {
       })    
       $('.delete-button').on('click', function() {
          const idData = $(this).attr('id').substring(16);
-        deleteReservation({reservation_id: idData})
-          .then(() => {
-            propertyListings.clearListings();
-            getAllListings().then(function( json ) {
-              propertyListings.addProperties(json.properties);
-              views_manager.show('listings');
-              });
-          })
+         console.log(`idData: ${idData}`)
+         deleteReservation(idData)
+         $(this).closest('article').remove();
       })
     } 
   }

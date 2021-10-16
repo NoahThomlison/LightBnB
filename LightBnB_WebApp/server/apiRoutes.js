@@ -88,9 +88,6 @@ module.exports = function(router, database) {
     console.log(req.params)
     const reservationId = req.params.reservationId;
     database.deleteReservation(reservationId)
-    .then(() => {
-      res.send('ok')
-    });
   })
   return router;
 }

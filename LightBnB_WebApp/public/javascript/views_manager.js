@@ -21,24 +21,30 @@ $(() => {
       case 'listings':
         $propertyListings.appendTo($main);
         break;
+
       case 'newProperty':
         $newPropertyForm.appendTo($main);
         break;
+
       case 'searchProperty':
         $searchPropertyForm.appendTo($main);
         break;
+
       case 'logIn':
         $logInForm.appendTo($main);
         break;
+
       case 'signUp':
         $signUpForm.appendTo($main);
         break;
+
       case 'newReservation':
         dataTag = `<h4>${data}</h4>`;
         $newReservationForm.appendTo($main);
         $("#datatag").empty(); 
         $(dataTag).appendTo("#datatag");
         break;
+
       case 'updateReservation':
         // since we're getting more information here, we caninclude this in an extended data tag:
         dataTag = `
@@ -62,6 +68,13 @@ $(() => {
         $(dataTag).appendTo("#datatag");
         $(errorMessage).appendTo('#error-message');
         break;
+        
+      case 'showReviews':
+        getReviewsByProperty(data)
+        .then(reviews => propertyReviews.addReviews(reviews))
+        $propertyReviews.appendTo($main);
+        break;
+        
       case 'error': {
         const $error = $(`<p>${arguments[1]}</p>`);
         $error.appendTo('body');

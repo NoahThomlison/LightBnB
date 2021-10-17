@@ -35,17 +35,32 @@ $(() => {
         const idData = $(this).attr('id').substring(16);
         getIndividualReservation(idData)
         .then(data => {
-          console.log(data)
           views_manager.show("updateReservation", data);       
         });
       })    
       $('.delete-button').on('click', function() {
          const idData = $(this).attr('id').substring(16);
-         console.log(`idData: ${idData}`)
          deleteReservation(idData)
          $(this).closest('article').remove();
       })
+      $('.add-review-button').on('click', function() {
+        const idData = $(this).attr('id').substring(11);
+        getIndividualReservation(idData)
+        .then(data => {
+          views_manager.show("newReview", data);
+        });
+      })
     } 
+    // else {
+    //   $('.reserve-button').on('click', function() {
+    //     const idData = $(this).attr('id').substring(17);
+    //     views_manager.show('newReservation', idData);
+    //   })
+    //   $('.review_details').on('click', function() {
+    //     const idData = $(this).attr('id').substring(15);
+    //     views_manager.show('showReviews', idData);
+    //   })
+    // } 
   }
 
   window.propertyListings.addProperties = addProperties;

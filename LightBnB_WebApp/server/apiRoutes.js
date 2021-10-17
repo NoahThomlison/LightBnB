@@ -85,7 +85,6 @@ module.exports = function(router, database) {
 
   // delete a reservation
   router.delete('/reservations/:reservationId', (req, res) => {
-    console.log(req.params)
     const reservationId = req.params.reservationId;
     database.deleteReservation(reservationId)
   })
@@ -98,6 +97,25 @@ module.exports = function(router, database) {
       res.send(reviews);
     })
   })
+
+    // update an existing reservation
+    router.post('/reservations/:reservationId', (req, res) => {
+      const reservationId = req.params.reservationId;
+      database.updateReservation({...req.body, reservation_id: reservationId})
+      .then(reservation => {
+        res.send(reservation)
+      })
+    })
+    
+    router.post('/reviews/:reservation_id', (req, res) => {
+      database.addReview(req.body)
+        .then(reviews => res.send(reviews))
+        .catch(e => {
+          console.error(e);
+          res.send(e);
+        })
+    })
+
 
   return router;
 }

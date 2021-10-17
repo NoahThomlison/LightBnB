@@ -14,9 +14,13 @@ $(() => {
     $newReservationForm.detach();
     $updateReservationForm.detach();
     $('#reservation-details').detach();
+    $newReviewForm.detach();
+    $('#review-details').detach();
+    $('#new-review-form').detach();
+
+    console.log(data)
 
     let datatag = "";
-    console.log(`switch case: ${item}`)
     switch (item) {
       case 'listings':
         $propertyListings.appendTo($main);
@@ -75,6 +79,18 @@ $(() => {
         $propertyReviews.appendTo($main);
         break;
         
+      case 'newReview':
+        console.log(data.id)
+        dataTag = `<h4>${data.id}</h4>`;
+        for(property in data) {
+          console.log(data[property])
+        }
+
+        $newReviewForm.appendTo($main);
+        $("#datatag").empty(); 
+        $(dataTag).appendTo("#datatag");
+        break;
+
       case 'error': {
         const $error = $(`<p>${arguments[1]}</p>`);
         $error.appendTo('body');

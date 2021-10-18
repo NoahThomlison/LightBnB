@@ -304,6 +304,8 @@ exports.updateReservation = updateReservation;
 //  Deletes an existing reservation
 
 const deleteReservation = function(reservationId) {
+  console.log('database')
+  console.log(reservationId)
   const queryParams = [reservationId];
   const queryString = `DELETE FROM reservations WHERE id = $1`;
   return pool.query(queryString, queryParams)

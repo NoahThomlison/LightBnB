@@ -18,11 +18,10 @@ $(() => {
     $('#review-details').detach();
     $('#new-review-form').detach();
 
-    console.log(data)
-
     let datatag = "";
     switch (item) {
       case 'listings':
+        // $()
         $propertyListings.appendTo($main);
         break;
 
@@ -80,12 +79,7 @@ $(() => {
         break;
         
       case 'newReview':
-        console.log(data.id)
         dataTag = `<h4>${data.id}</h4>`;
-        for(property in data) {
-          console.log(data[property])
-        }
-
         $newReviewForm.appendTo($main);
         $("#datatag").empty(); 
         $(dataTag).appendTo("#datatag");

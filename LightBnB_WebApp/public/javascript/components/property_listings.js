@@ -40,8 +40,11 @@ $(() => {
       })    
       $('.delete-button').on('click', function() {
          const idData = $(this).attr('id').substring(16);
+         console.log(`propertye Listings ${idData}`)
          deleteReservation(idData)
-         $(this).closest('article').remove();
+         $(this).closest('article').hide('slow');
+
+        //  $(this).closest('article').remove();
       })
       $('.add-review-button').on('click', function() {
         const idData = $(this).attr('id').substring(11);
@@ -51,16 +54,16 @@ $(() => {
         });
       })
     } 
-    // else {
-    //   $('.reserve-button').on('click', function() {
-    //     const idData = $(this).attr('id').substring(17);
-    //     views_manager.show('newReservation', idData);
-    //   })
-    //   $('.review_details').on('click', function() {
-    //     const idData = $(this).attr('id').substring(15);
-    //     views_manager.show('showReviews', idData);
-    //   })
-    // } 
+    else {
+      $('.reserve-button').on('click', function() {
+        const idData = $(this).attr('id').substring(17);
+        views_manager.show('newReservation', idData);
+      })
+      $('.review_details').on('click', function() {
+        const idData = $(this).attr('id').substring(15);
+        views_manager.show('showReviews', idData);
+      })
+    } 
   }
 
   window.propertyListings.addProperties = addProperties;

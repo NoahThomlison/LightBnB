@@ -41,3 +41,20 @@
   * `apiRoutes.js` and `userRoutes.js` are responsible for any HTTP requests to `/users/something` or `/api/something`. 
   * `json` is a directory that contains a bunch of dummy data in `.json` files.
   * `database.js` is responsible for all queries to the database. It doesn't currently connect to any database, all it does is return data from `.json` files.
+
+## Project ERD
+![ERD](https://user-images.githubusercontent.com/80222250/138112888-bd9381a1-dbfd-48df-a903-a04b445c41f2.png)
+
+## Project Images
+
+### My Listings
+![image](https://user-images.githubusercontent.com/80222250/138118467-fb2b5ac6-933b-4ff3-a5e6-c82cb8433f92.png)
+
+### Create a Listing
+![image](https://user-images.githubusercontent.com/80222250/138118610-30f2f5c1-1770-4d48-bdde-7eb9338f84a6.png)
+
+### My Reservations
+![image](https://user-images.githubusercontent.com/80222250/138118697-f652e5eb-895c-46a1-a13d-cdcf3b2e46dd.png)
+
+### Change Reservation
+![image](https://user-images.githubusercontent.com/80222250/138118557-bbaf8221-a6a7-44ea-9744-1eb15aed3b9c.png)

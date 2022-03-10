@@ -23,6 +23,8 @@ npm run sass
 
 ## Running PSQL
 login to psql and use the following command:
+```sh
 psql -h localhost -p 5432 -U vagrant lightbnb
+```
 password: 123
 

@@ -1,7 +1,4 @@
 # LightBnB
-LightBNB is an Lighthouse Labs AirBNB clone. It is built using SASS, JS, Express, and PSQL. Users can add properties to rent, view properites to rent, add reviews, and book rental properties.
-
-# LightBnB
 
 ## Project Summary
 
@@ -13,7 +10,7 @@ Install dependencies with `npm install`.
 
 ## Running Webpack Development Server
 ```sh
-npm start
+npm run local
 ```
 
 ## Running SASS Updates

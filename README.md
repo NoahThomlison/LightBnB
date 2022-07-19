@@ -10,6 +10,14 @@ LightBNB is an Lighthouse Labs AirBNB clone. It is built using SASS, JS, Express
 
 Install dependencies with `npm install`.
 
+### Dependencies
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4",
+    "pg": "^8.7.1"
+    
 ## Running Webpack Development Server
 ```sh
 npm run local
